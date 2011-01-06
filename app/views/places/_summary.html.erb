@@ -1,0 +1,31 @@
+<% place = summary -%>
+<h2><%=link_to place.name, place %></h2>
+
+<div class="metadata">
+  <span class="author">Created by <%= place.author %></span>
+  <span class="timestamp"><%= distance_of_time_in_words_to_now place.created_at %> ago</span>
+  <% if @user and @user.admin? %>
+    <span class="edit_links">
+      <%= link_to image_tag("edit.png"), edit_place_path(place) %>
+      <%= link_to image_tag("remove.png"),  place, :confirm => 'Are you sure?', :method => :delete %>
+    </span>
+  <% end %>
+</div>
+
+<div class="place_content">
+  <%=textilize place.short_content(500) %>
+</div>
+
+<div class="coordiantes">
+  Position:
+  <span><%="%0.5f" % place.latitude %></span>,
+  <span><%="%0.5f" % place.longitude %></span>
+</div>
+
+<p class="comment_link">
+  <% if place.comments.length > 0 %>
+    <%= link_to pluralize(place.comments.length, "comment"), place_url(place) + "#comments" %>
+  <% else %>
+    <%= link_to "no comments", place_url(place) + "#comments" %>
+  <% end %>
+</p>
