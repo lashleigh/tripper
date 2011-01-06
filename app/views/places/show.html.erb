@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @place.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @place.description %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%= @place.latitude %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%= @place.longitude %>
+</p>
+
+<h2>Comments</h2>
+<%= render :partial => "comments/comment",
+           :collection => @place.comments %>
+
+<h2>Add a comment:</h2>
+<%= render "comments/form" %>
+
+<%= link_to 'Edit', edit_place_path(@place) %> |
+<%= link_to 'Back', places_path %>
