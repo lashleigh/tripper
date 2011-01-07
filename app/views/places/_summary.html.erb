@@ -13,10 +13,13 @@
 </div>
 
 <div class="place_content">
-  <%=textilize place.short_content(500) %>
+  <%= place.description %>
 </div>
 
-<div class="coordiantes">
+<div class="tags">
+  <%= place.tag_list %>
+</div>
+<div class="coordiantes" style="display:none">
   Position:
   <span><%="%0.5f" % place.latitude %></span>,
   <span><%="%0.5f" % place.longitude %></span>

@@ -1,6 +1,15 @@
 class PlacesController < ApplicationController
   before_filter :authenticate, :except => [:index, :show]
 
+  # Update Place location
+  def update_location
+    place = Place.find(params[:id])
+    place.latitude = params[:lat]
+    place.longitude = params[:lon]
+    place.save
+    render :text => place.to_json
+  end
+
   # GET /places
   # GET /places.xml
   def index
