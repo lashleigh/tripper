@@ -1,2 +1,11 @@
 <h1> Welcome to the start of your awesome website </h1>
 <%= link_to "My Blog", places_path %>
+  <%= javascript_include_tag 'geocoder' %>
+
+<div>
+  <input id="latlng" type="textbox" value="40.714224,-73.961452">
+  <input type="button" value="Reverse Geocode" onclick="codeLatLng()">
+  <input id="address" type="textbox" value="Sydney, NSW">
+  <input type="button" value="Encode" onclick="codeAddress()">
+</div>
+<div id="map_canvas" style="width: 320px; height: 280px;"></div>

@@ -1,3 +1,4 @@
+<%= javascript_include_tag 'map_index' %>
 <div class="listing_places">
   <h1>
     List of Places
@@ -6,5 +7,12 @@
     <% end %>
   </h1>
 
-<%= render :partial => 'summary', :collection => @places %>
+  <%= render :partial => 'summary', :collection => @places %>
+</div>
+
+<script type="text/javascript">
+  var places = <%= @places.to_json.html_safe %>;
+</script>
+
+<div id="map_canvas"> </div>
 
