@@ -1,5 +1,6 @@
 class Place < ActiveRecord::Base
   acts_as_taggable
+  acts_as_taggable_on :designations, :facilities
   has_many :comments, :dependent => :destroy
   belongs_to :user
 

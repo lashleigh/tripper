@@ -1,6 +1,5 @@
 var infoWindow = new google.maps.InfoWindow();
 var placeMap;
-var marker;
 
 $(function() {
   // Initialize the map with default UI.

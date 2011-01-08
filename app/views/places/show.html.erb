@@ -1,25 +1,27 @@
 <%= javascript_include_tag 'map_for_place' %>
-<p id="notice"><%= notice %></p>
 
-<p>
+<div class="places_content">
+  <p id="notice"><%= notice %></p>
+
+  <p>
   <b>Name:</b>
   <%= @place.name %>
-</p>
+  </p>
 
-<p>
+  <p>
   <b>Description:</b>
   <%= @place.description %>
-</p>
+  </p>
 
-<h3>Comments</h3>
-<%= render :partial => "comments/comment",
-           :collection => @place.comments %>
+  <h3>Comments</h3>
+  <%= render :partial => "comments/comment",
+    :collection => @place.comments %>
 
-<h4>Add a comment:</h4>
-<%= render "comments/form" %>
+  <%= render "comments/form" %>
 
-<%= link_to 'Edit', edit_place_path(@place) %> |
-<%= link_to 'Back', places_path %>
+  <%= link_to 'Edit', edit_place_path(@place) %> |
+  <%= link_to 'Back', places_path %>
+</div>
 
 <div id="map_container">
   <%= render :partial => "map" %>

@@ -12,6 +12,7 @@
       mapTypeId: google.maps.MapTypeId.ROADMAP
     }
     map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
   })
 
   function codeAddress() {
@@ -19,10 +20,15 @@
     geocoder.geocode( { 'address': address}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
         map.setCenter(results[0].geometry.location);
-        var marker = new google.maps.Marker({
+        marker = new google.maps.Marker({
             map: map, 
             position: results[0].geometry.location
         });
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.setContent(results[0].formatted_address);
+          infowindow.open(map, marker);
+        });
+
       } else {
         alert("Geocode was not successful for the following reason: " + status);
       }
