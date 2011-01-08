@@ -1,7 +1,6 @@
   var geocoder;
   var map;
   var infowindow = new google.maps.InfoWindow();
-  var marker;
 
   $(function() {
     geocoder = new google.maps.Geocoder();
@@ -20,7 +19,7 @@
     geocoder.geocode( { 'address': address}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
         map.setCenter(results[0].geometry.location);
-        marker = new google.maps.Marker({
+        var marker = new google.maps.Marker({
             map: map, 
             position: results[0].geometry.location
         });
@@ -45,7 +44,7 @@
       if (status == google.maps.GeocoderStatus.OK) {
         if (results[1]) {
           map.setZoom(11);
-          marker = new google.maps.Marker({
+          var marker = new google.maps.Marker({
               position: latlng, 
               map: map
           }); 

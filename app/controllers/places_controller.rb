@@ -1,6 +1,19 @@
 class PlacesController < ApplicationController
   before_filter :authenticate, :except => [:index, :show]
 
+  def new_place
+    @place = Place.new
+    @place.latitude = params[:lat]
+    @place.longitude = params[:lng]
+    @place.name = params[:name]
+
+    if not @place.latitude and @place.longitude
+      render :text => "<h3>Please provide the coordinates of your place.</h3>"
+    else
+      render :layout => false
+    end
+  end
+
   # Update Place location
   def update_location
     place = Place.find(params[:id])
@@ -52,14 +65,18 @@ class PlacesController < ApplicationController
   # POST /places.xml
   def create
     @place = Place.new(params[:place])
-
+    
     respond_to do |format|
       if @place.save
+        logger.info "Save successful"
         format.html { redirect_to(@place, :notice => 'Place was successfully created.') }
         format.xml  { render :xml => @place, :status => :created, :location => @place }
+        format.js { render :json => @place, :status => :created, :location => @place  }
       else
+        logger.info "Failed"
         format.html { render :action => "new" }
         format.xml  { render :xml => @place.errors, :status => :unprocessable_entity }
+        format.js { render :json => @place.errors, :status => :unprocessable_entity }
       end
     end
   end

@@ -19,6 +19,8 @@
     <%= f.label :description %><br />
     <%= f.text_area :description %>
   </div>
+  <div> <%= select_tag 'designation', options_for_select([["National Park"], ["Start Park"], ["County Park"], ["City Park"]]) %>  </div>
+
   <div class="field" style="display:none;">
     <%= f.label :latitude %><br />
     <%= f.text_field :latitude %>
