@@ -100,10 +100,10 @@ function codeAddress() {
 }
 
 function createSuggestionFromSearch(event) {
-  $.get("/places/new_place",
+  $.get("/home/new_place",
              { lat: savedLatLng.lat(),
                lng: savedLatLng.lng(),
-               name: savedAddress },
+               name: savedAddress, },
              function(stuff) {
                $.fancybox({ content: stuff, scrolling: "no" });
              });

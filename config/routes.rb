@@ -1,5 +1,5 @@
 Tripper::Application.routes.draw do
-  match 'places/new_place' => 'places#new_place'
+  match 'home/new_place' => 'home#new_place'
 
   resources :places do
     resources :comments

@@ -1,19 +1,6 @@
 class PlacesController < ApplicationController
   before_filter :authenticate, :except => [:index, :show]
 
-  def new_place
-    @place = Place.new
-    @place.latitude = params[:lat]
-    @place.longitude = params[:lng]
-    @place.name = params[:name]
-
-    if not @place.latitude and @place.longitude
-      render :text => "<h3>Please provide the coordinates of your place.</h3>"
-    else
-      render :layout => false
-    end
-  end
-
   # Update Place location
   def update_location
     place = Place.find(params[:id])
@@ -65,6 +52,8 @@ class PlacesController < ApplicationController
   # POST /places.xml
   def create
     @place = Place.new(params[:place])
+    @place.designation_list = params[:designation]
+    @place.facility_list = params[:facilities]
     
     respond_to do |format|
       if @place.save
@@ -85,6 +74,8 @@ class PlacesController < ApplicationController
   # PUT /places/1.xml
   def update
     @place = Place.find(params[:id])
+    @place.designation_list = params[:designation]
+    @place.facility_list = params[:facilities]
 
     respond_to do |format|
       if @place.update_attributes(params[:place])
@@ -104,7 +95,7 @@ class PlacesController < ApplicationController
     @place.destroy
 
     respond_to do |format|
-      format.html { redirect_to(places_url) }
+      format.html { redirect_to("home/index") }
       format.xml  { head :ok }
     end
   end
