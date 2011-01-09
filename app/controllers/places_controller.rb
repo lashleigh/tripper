@@ -95,7 +95,7 @@ class PlacesController < ApplicationController
     @place.destroy
 
     respond_to do |format|
-      format.html { redirect_to("home/index") }
+      format.html { redirect_to("/home/index") }
       format.xml  { head :ok }
     end
   end

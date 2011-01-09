@@ -1,24 +1,15 @@
 <%= javascript_include_tag 'map_index' %>
 <div id="map_sidebar">
-  <h1>
-    List of Places
-    <% if @user and @user.admin? %>
-      <span id="new_place_link">(<%= link_to 'New', new_place_path %>)</span>
-    <% end %>
-  </h1>
+  <% if @user and @user.admin? %>
+    <span id="new_place_link">(<%= link_to 'New', new_place_path %>)</span>
+  <% end %>
 
-  <%= render :partial => 'places/summary', :collection => @places %>
+  <%= render :partial => 'sidebar', :collection => @places %>
 </div>
 
 <script type="text/javascript">
   var places = <%= @places.to_json.html_safe %>;
-  var content = "<select id='designation' name='designation'>" +
-                  "<option value='National Park'>National Park</option>" +
-                  "<option value='State Park'>State Park</option>" +
-                  "<option value='County Park'>County Park</option>" +
-                  "<option value='City Park'>City Park</option>" 
-
-
+  var inforwindow_content = '<div></div>';
 </script>
 
 <div id="map_container">

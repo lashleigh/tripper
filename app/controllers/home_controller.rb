@@ -13,6 +13,7 @@ class HomeController < ApplicationController
     @place.latitude = params[:lat]
     @place.longitude = params[:lng]
     @place.name = params[:name]
+    @place.address = params[:address]
     @place.designation_list = params[:designation]
     @place.facility_list = params[:facilities]
 

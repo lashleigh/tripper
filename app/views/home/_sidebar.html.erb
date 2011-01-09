@@ -1,0 +1,12 @@
+<% place = sidebar-%>
+<div>
+  <div class="place_in_sidebar">
+    <div class="place_title_in_sidebar">
+      <p><%=link_to place.name, place %></p>
+    </div>
+    <p><%=place.address%></p>
+    <p><%= place.designation_list %></p>
+    <p><%= place.facility_list%></p>
+
+  </div>
+</div>

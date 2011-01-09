@@ -3,6 +3,8 @@ var placeMap;
 var geocoder = new google.maps.Geocoder();
 var savedLatLng;
 var savedAddress;
+var savedName;
+var savedResult;
 var searchResults = [];
 
 // Create our "tiny" marker icon
@@ -63,7 +65,7 @@ function draw_places(i, placeObj) {
     //draggable: true,
   });
   google.maps.event.addListener(marker, 'click', function() {
-    infoWindow.setContent(placeObj.place.description + content);
+    infoWindow.setContent(placeObj.place.description);
     infoWindow.open(placeMap, marker);
   });
 }
@@ -88,8 +90,9 @@ function codeAddress() {
   geocoder.geocode( { 'address': address}, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
       $(results).each(drawResults);
-      console.log(results);
+      savedResult = results[0];
       savedAddress = results[0].formatted_address;
+      savedName = results[0].address_components[0].long_name;
       savedLatLng = results[0].geometry.location;
       placeMap.setCenter(savedLatLng);
 
@@ -103,7 +106,8 @@ function createSuggestionFromSearch(event) {
   $.get("/home/new_place",
              { lat: savedLatLng.lat(),
                lng: savedLatLng.lng(),
-               name: savedAddress, },
+               name: savedName,
+               address: savedAddress,},
              function(stuff) {
                $.fancybox({ content: stuff, scrolling: "no" });
              });
