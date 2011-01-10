@@ -54,15 +54,14 @@ class PlacesController < ApplicationController
     @place = Place.new(params[:place])
     @place.designation_list = params[:designation]
     @place.facility_list = params[:facilities]
+    @place.user = current_user
     
     respond_to do |format|
       if @place.save
-        logger.info "Save successful"
         format.html { redirect_to(@place, :notice => 'Place was successfully created.') }
         format.xml  { render :xml => @place, :status => :created, :location => @place }
         format.js { render :json => @place, :status => :created, :location => @place  }
       else
-        logger.info "Failed"
         format.html { render :action => "new" }
         format.xml  { render :xml => @place.errors, :status => :unprocessable_entity }
         format.js { render :json => @place.errors, :status => :unprocessable_entity }

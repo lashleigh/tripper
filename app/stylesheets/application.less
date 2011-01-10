@@ -43,8 +43,41 @@ h1 {
   margin: 0 0 15px 0;
 }
 
-.listing_places, .places_content, #map_container {
+.listing_places {
+  h2 {
+    margin: 10px;
+  }
+}
+.places_content { 
   width: 500px;
   float: left;
   margin: 20px;
 }
+#map_container {
+  width: 500px;
+  float: left;
+  margin: 20px;
+}
+
+table.zebra {
+  margin: 1em 0 0 0;
+  border-spacing: 0px;
+  text-align: left;
+  th {
+    padding: 5px 10px;
+  }
+  td {
+    padding: 10px;
+  }
+  td.zebra_description {
+    width: 45%;
+  }
+  tr.odd {
+    border-collapse: collapse;
+    background-color: #EEE;
+  }
+  tr:hover {
+    background: #FFFFD9;
+  }
+}
+

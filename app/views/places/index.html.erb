@@ -1,11 +1,14 @@
 <div class="listing_places">
-  <h1>
-    List of Places
-    <% if @user and @user.admin? %>
-      <span id="new_place_link">(<%= link_to 'New', new_place_path %>)</span>
-    <% end %>
-  </h1>
-
-  <%= render :partial => 'summary', :collection => @places %>
+  <h2 class="scaffold">Places</h2>
+  <table class="zebra">
+    <tr>
+      <th>User</th>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Description</th>
+      <th></th>
+    </tr>
+    <%= render :partial => 'row_summary', :collection => @places %>
+  </table>
 </div>
 
