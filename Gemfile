@@ -9,6 +9,8 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'less'
 gem 'RedCloth'
 gem 'acts-as-taggable-on'
+gem 'ruby-openid'
+gem 'twitter_oauth'
 
 # Use unicorn as the web server
 # gem 'unicorn'
