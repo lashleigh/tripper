@@ -1,5 +1,5 @@
 class PlacesController < ApplicationController
-  before_filter :authenticate, :except => [:index, :show]
+  before_filter :authenticate_user!, :except => [:show, :index]
 
   # Update Place location
   def update_location

@@ -5,7 +5,7 @@
 <div class="metadata">
   <span class="author">Created by <%= place.author %></span>
   <span class="timestamp"><%= distance_of_time_in_words_to_now place.created_at %> ago</span>
-  <% if @user and @user.admin? %>
+  <% if user_signed_in? and @user.admin? %>
     <span class="edit_links">
       <%= link_to image_tag("edit.png"), edit_place_path(place) %>
       <%= link_to image_tag("remove.png"),  place, :confirm => 'Are you sure?', :method => :delete %>

@@ -23,7 +23,7 @@ class Place < ActiveRecord::Base
 
   def author
     if user
-      user.name
+      user.email
     else
       "unknown"
     end
