@@ -11,6 +11,7 @@ gem 'RedCloth'
 gem 'acts-as-taggable-on'
 gem 'ruby-openid'
 gem 'twitter_oauth'
+gem 'taps'
 
 # Use unicorn as the web server
 # gem 'unicorn'
