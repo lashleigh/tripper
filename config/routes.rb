@@ -1,4 +1,6 @@
 Tripper::Application.routes.draw do
+  devise_for :users
+
   match 'home/new_place' => 'home#new_place'
 
   resources :places
