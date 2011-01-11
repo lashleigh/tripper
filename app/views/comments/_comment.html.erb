@@ -1,12 +1,11 @@
 <div class="metadata">
   <span class="timestamp"><%= distance_of_time_in_words_to_now comment.created_at %> ago</span>
-  <span class="author"> <%= comment.place.author %> said:</span>
+  <span class="author"> <%= comment.user.username%> said:</span>
   <div class="comment_body">
     <%= comment.body %>
   </div>
-  <% if @user and @user.admin? %>
+  <% if user_signed_in? and current_user.admin? %>
     <span class="edit_links">
-      <%= link_to image_tag("edit.png"), edit_place_path(place) %>
       <%= link_to image_tag("remove.png", :alt => 'Destroy Comment'), [comment.place, comment],
                   :confirm => 'Are you sure?',
                   :method => :delete %>
