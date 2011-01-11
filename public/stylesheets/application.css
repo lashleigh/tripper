@@ -28,32 +28,6 @@ h1 {
   margin-top: 10px;
   margin-bottom: 17.4333px;
 }
-#map_canvas_for_place {
-  float: left;
-  margin: 30px 0;
-  width: 350px;
-  height: 350px;
-}
-#map_container {
-  float: left;
-  margin: 30px;
-}
-#map_canvas {
-  width: 600px;
-  height: 500px;
-}
-#map_sidebar {
-  width: 400px;
-  float: left;
-  margin: 40px 20px 20px;
-}
-.place_in_sidebar { margin: 0 0 15px 0; }
-.listing_places h2 { margin: 10px; }
-.places_content, #map_container {
-  width: 500px;
-  float: left;
-  margin: 20px;
-}
 table.zebra {
   margin: 1em 0 0 0;
   border-spacing: 0px;

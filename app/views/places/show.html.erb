@@ -1,15 +1,18 @@
 <%= javascript_include_tag 'map_for_place' %>
 
-<div class="places_content">
+<div class="place_form">
   <p id="notice"><%= notice %></p>
 
-  <p>
-  <b>Name:</b>
-  <%= @place.name %>
-  </p>
+  <h2> 
+    <%= @place.name %> 
+    <% if user_signed_in? and (@place.user == current_user or current_user.admin?) %>
+      <span class="edit_links">
+        <%= link_to image_tag('edit.png'), edit_place_path(@place) %>
+      </span>
+    <% end %>
+  </h2>
 
   <p>
-  <b>Description:</b>
   <%= @place.description %>
   </p>
 
@@ -19,10 +22,8 @@
 
   <%= render "comments/form" %>
 
-  <%= link_to 'Edit', edit_place_path(@place) %> |
-  <%= link_to 'Back', places_path %>
+  <%= link_to 'Back', places_path %> |
   <%= link_to 'Back To Map', "/home/index" %>
-  <%= button_to 'Destroy', @place, :confirm => 'Are you sure?', :method => :delete %>
 </div>
 
 <div id="map_container">
