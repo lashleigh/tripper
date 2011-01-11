@@ -32,7 +32,7 @@ $(function() {
     mapTypeId: 'roadmap'
   });
 
-  $(places).each(draw_places);
+  $(places).each(drawPlace);
 
   $(".addPlaceFromSearch").live("click", function(e) {
     e.preventDefault();
@@ -47,7 +47,7 @@ $(function() {
           $.fancybox.resize();
         }
         else {
-          draw_places(0, res);
+          drawPlace(0, res);
           $.fancybox.close();
           infoWindow.close();
         }
@@ -57,7 +57,7 @@ $(function() {
 
 });
 
-function draw_places(i, placeObj) {
+function drawPlace(i, placeObj) {
   var marker = new google.maps.Marker({
     position: new google.maps.LatLng(placeObj.place.latitude, placeObj.place.longitude),
     map: placeMap,
@@ -70,7 +70,7 @@ function draw_places(i, placeObj) {
   });
 }
 
-function drawResults(i, result) {
+function drawResult(i, result) {
   var marker = new google.maps.Marker({
       map: placeMap, 
       position: result.geometry.location,
@@ -89,7 +89,7 @@ function codeAddress() {
   var address = document.getElementById("address").value;
   geocoder.geocode( { 'address': address}, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
-      $(results).each(drawResults);
+      $(results).each(drawResult);
       savedResult = results[0];
       savedAddress = results[0].formatted_address;
       savedName = results[0].address_components[0].long_name;

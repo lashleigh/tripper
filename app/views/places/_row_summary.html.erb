@@ -5,7 +5,7 @@
   <td class="address"><%= link_to place.address, place%></td>
   <td class="zebra_description"><%=truncate(place.description, :length => 100) %></td>
   <td class="edit_and_delete_links">
-    <% if user_signed_in? and (place.user == current_user ) %>
+    <% if user_signed_in? and (place.user == current_user or current_user.admin?) %>
       <%= link_to image_tag("edit.png"), edit_place_path(place) %>
       <%= link_to image_tag("remove.png"), place, :confirm => 'Are you sure?', :method => :delete %>
     <% end %>

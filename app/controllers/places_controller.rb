@@ -46,11 +46,22 @@ class PlacesController < ApplicationController
   # GET /places/1/edit
   def edit
     @place = Place.find(params[:id])
+    unless @place.user == current_user or current_user.admin?
+      flash[:error] = "You are not authorized to edit that suggestion."
+      redirect_to :action => :home
+      return
+    end
   end
 
   # POST /places
   # POST /places.xml
   def create
+    unless user_signed_in?
+      flash[:error] = "You must be logged in to create a suggestion"
+      redirect_to(places_url)
+      return
+    end
+
     @place = Place.new(params[:place])
     @place.designation_list = params[:designation]
     @place.facility_list = params[:facilities]
@@ -91,7 +102,11 @@ class PlacesController < ApplicationController
   # DELETE /places/1.xml
   def destroy
     @place = Place.find(params[:id])
-    @place.destroy
+    if current_user and (current_user.admin? or @place.user == current_user)
+      @place.destroy
+    else
+      flash[:error] = "It appears you attempted to delete a suggestion that you did not create. Perhaps you need to log in?"
+    end
 
     respond_to do |format|
       format.html { redirect_to("/home/index") }
