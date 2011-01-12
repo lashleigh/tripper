@@ -23,11 +23,6 @@
   <p>Designation: <%= place.designation_list %> </p>
   <p>Facilities: <%= place.facility_list%> </p>
 </div>
-<div class="coordiantes" style="display:none">
-  Position:
-  <span><%="%0.5f" % place.latitude %></span>,
-  <span><%="%0.5f" % place.longitude %></span>
-</div>
 
 <p class="comment_link">
   <% if place.comments.length > 0 %>

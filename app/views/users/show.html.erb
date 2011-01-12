@@ -1,0 +1,5 @@
+<h1> User Profile Page </h1>
+This is the profile page of <%= @user.username %>
+Here is a list of the places they created
+<%= render :partial => '/places/summary', :collection => @places %>
+
