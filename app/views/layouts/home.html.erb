@@ -15,20 +15,19 @@
 <body>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-
-  <div id="header">
-    <div id="user_nav">  
-      <% if user_signed_in? %>  
-        Signed in as <%= current_user.email %>. Not you?  
-        <%= link_to "Sign out", destroy_user_session_path %>  
-        <%= link_to "Edit profile", edit_user_registration_path %>  
-      <% else %>  
-        <%= link_to "Sign up", new_user_registration_path %> or  
-        <%= link_to "Sign in", new_user_session_path %>  
-      <% end %>  
-    </div> 
+  <div id="the_top">
+    <%= render :partial => "/home/header" %>
   </div>
-  <%= yield %>
+  <div id="the_middle">
+    <div id="the_content" class="bound">
+      <%= yield %>
+    </div>
+  </div>
+  <div id="the_bottom">
+    <div id="the_footer" class="bound">
+      <h3> Just a little footsie </h3>
+    </div>
+  </div>
 
 </body>
 </html>

@@ -13,8 +13,14 @@
 <body>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-
-  <%= yield %>
+  <div id="the_top">
+    <%= render :partial => "/home/header" %>
+  </div>
+  <div id="the_middle">
+    <div id="the_content" class="bound">
+      <%= yield %>
+    </div>
+  </div>
 
 </body>
 </html>

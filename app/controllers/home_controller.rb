@@ -8,7 +8,16 @@ class HomeController < ApplicationController
     end
   end
 
-  def new_place
+  def map
+   @places = Place.all.reverse
+
+   respond_to do |format|
+     format.html # index.html.erb
+     format.xml  { render :xml => @places }
+   end
+ end
+
+ def new_place
     @place = Place.new
     @place.latitude = params[:lat]
     @place.longitude = params[:lng]

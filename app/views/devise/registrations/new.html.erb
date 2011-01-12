@@ -1,33 +1,37 @@
-<div class="user_form">
-  <h2>Sign up</h2>
-
+<div class="block">
+  <h2>Sign Up</h2>
+</div>
+<div class="flush">
   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
 
-    <table>
-      <tr>
-        <td><%= f.label :username %></td>
-        <td><%= f.text_field :username %></td>
-      </tr>
+    <fieldset>
+      <div class="field">
+        <%= f.label :username %>
+        <%= f.text_field :username %>
+        <span class="hint quiet">Used as your username throughout the site</span>
+      </div>
 
-      <tr>
-        <td><%= f.label :email %></td>
-        <td><%= f.text_field :email %></td>
-      </tr>
+      <div class="field">
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+        <span class="hint quiet">Where we can contact you (no spam), and the password reset address</span>
+      </div>
 
-      <tr>
-        <td><%= f.label :password %></td>
-        <td><%= f.password_field :password %></td>
-      </tr>
+      <div class="field">
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+      </div>
 
-      <tr>
-        <td><%= f.label :password_confirmation %></td>
-        <td><%= f.password_field :password_confirmation %></td>
-      </tr>
-    </table>
+      <div class="field">
+        <%= f.label :confirm_password %>
+        <%= f.password_field :password_confirmation %>
+      </div>
+    </fieldset>
 
-    <p><%= f.submit "Sign up" %></p>
+    <fieldset class="buttons">
+      <%= f.submit "Sign up" %>
+    </fieldset>
+
   <% end %>
-
-  <%= render :partial => "devise/shared/links" %>
 </div>
