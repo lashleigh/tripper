@@ -1,6 +1,6 @@
 <% place = row_summary-%>
 <tr class="place<%= (place.user == current_user) ? " mine" : "" %>">
-  <td><%= place.user.email %></td>
+  <td class="user"><%= place.user.username %></td>
   <td class="name"><%= link_to place.name, place%></td>
   <td class="address"><%= link_to place.address, place%></td>
   <td class="zebra_description"><%=truncate(place.description, :length => 100) %></td>

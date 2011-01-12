@@ -1,6 +1,6 @@
 class PlacesController < ApplicationController
   before_filter :authenticate_user!, :except => [:show, :index]
-  layout "home"
+  layout "application"
 
   # Update Place location
   def update_location

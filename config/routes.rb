@@ -4,6 +4,7 @@ Tripper::Application.routes.draw do
   match 'home/new_place' => 'home#new_place'
 
   resources :places
+  resources :users
 
   resources :places do
     resources :comments

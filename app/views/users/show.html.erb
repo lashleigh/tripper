@@ -1,5 +1,13 @@
 <h1> User Profile Page </h1>
-This is the profile page of <%= @user.username %>
-Here is a list of the places they created
-<%= render :partial => '/places/summary', :collection => @places %>
+<div>
+  This is the profile page of <%= @user.username %>
+</div>
+<div class="user_created">
+  <%= @user.username %> has created <%= pluralize(@places.length, 'parks') %>
+  <%= render :partial => '/places/summary', :collection => @places %>
+</div>
 
+<div class="user_visited">
+  <%= @user.username %> has visited <%= pluralize(@places.length, 'parks') %>
+  <%= render :partial => '/places/summary', :collection => @places %>
+</div>
