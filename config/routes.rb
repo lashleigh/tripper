@@ -1,8 +1,8 @@
 Tripper::Application.routes.draw do
   devise_for :users
 
-  match 'home/new_place' => 'home#new_place'
-  match 'home/map' => 'home#map'
+  match 'map/new_place' => 'map#new_place'
+  match 'map/index' => 'map#index'
 
   resources :places
   resources :users

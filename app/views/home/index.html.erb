@@ -1,9 +1,6 @@
-<div id="map_sidebar">
-  <% if @user and @user.admin? %>
-    <span id="new_place_link">(<%= link_to 'New', new_place_path %>)</span>
-  <% end %>
-
-  <%= render :partial => 'sidebar', :collection => @places %>
+<div id="history">
+  <h2> History </h2>
+  <%= render :partial => 'history', :collection => @places %>
 </div>
 
 

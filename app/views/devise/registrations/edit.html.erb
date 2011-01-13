@@ -1,6 +1,8 @@
-<div class="user_form">
-<h2>Edit <%= resource_name.to_s.humanize %> Account</h2>
+<div class="block">
+  <h2>Edit User Account</h2>
+</div>
 
+<div class="auth_form">
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= devise_error_messages! %>
 

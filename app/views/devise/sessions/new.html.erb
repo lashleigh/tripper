@@ -1,8 +1,8 @@
 <div class="block">
   <h2>Sign in</h2>
 </div>
-
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+<div class="auth_form">
+  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
 
     <fieldset>
@@ -22,5 +22,6 @@
       <%= f.submit "Sign in" %>
     </fieldset>
 
-<% end %>
+  <% end %>
+</div>
 

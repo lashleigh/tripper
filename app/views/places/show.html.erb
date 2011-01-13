@@ -1,6 +1,6 @@
 <%= javascript_include_tag 'map_for_place' %>
 
-<div class="place_form">
+<div class="show_place">
   <p id="notice"><%= notice %></p>
 
   <h2> 
@@ -12,9 +12,9 @@
     <% end %>
   </h2>
 
-  <p>
-  <%= @place.description %>
-  </p>
+  <div class="block">
+    <%= @place.description %>
+  </div>
 
   <h3>Comments</h3>
   <%= render :partial => "comments/comment",

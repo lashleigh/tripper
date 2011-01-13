@@ -103,7 +103,7 @@ function codeAddress() {
 }
 
 function createSuggestionFromSearch(event) {
-  $.get("/home/new_place",
+  $.get("/map/new_place",
              { lat: savedLatLng.lat(),
                lng: savedLatLng.lng(),
                name: savedName,

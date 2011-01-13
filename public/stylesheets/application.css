@@ -344,8 +344,8 @@ label {
   font-size: 1.4em;
   padding: 1.05em 1em 0px 0px;
   text-align: right;
-  width: 10em;
 }
+.auth_form label { width: 10em; }
 fieldset {
   -webkit-margin-end: 2px;
   -webkit-margin-start: 2px;
@@ -362,6 +362,17 @@ fieldset {
   padding: 0.55em 0px;
 }
 .field input[type="text"] {
+  background: white;
+  border-bottom-left-radius: 0.25em 0.25em;
+  border-bottom-right-radius: 0.25em 0.25em;
+  border-top-left-radius: 0.25em 0.25em;
+  border-top-right-radius: 0.25em 0.25em;
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 0.25em;
+  width: 16em;
+}
+.field input[type="textarea"] {
   background: white;
   border-bottom-left-radius: 0.25em 0.25em;
   border-bottom-right-radius: 0.25em 0.25em;

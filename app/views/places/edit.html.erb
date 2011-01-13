@@ -1,8 +1,9 @@
-<div class="place_form">
-  <h1>Editing place</h1>
+<div class="edit_place">
+  <div class="block">
+    <h2>Editing place</h2>
+  </div>
+  <div class="place_form">
+    <%= render 'form' %>
+  </div>
 
-  <%= render 'form' %>
-
-  <%= link_to 'Show', @place %> |
-  <%= link_to 'Back', places_path %>
 </div>

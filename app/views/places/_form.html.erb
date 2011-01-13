@@ -4,36 +4,33 @@
       <h2><%= pluralize(@place.errors.count, "error") %> prohibited this place from being saved:</h2>
 
       <ul>
-      <% @place.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+        <% @place.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, :size => '55' %>
-  </div>
-  <div> <%= select_tag 'designation', options_for_select([[],["National Park"], ["Start Park"], ["County Park"], ["City Park"]], :selected => @place.designation_list) %>  </div>
-  <div> <%= select_tag 'facilities', options_for_select([
-                                                        ["Camping"], 
-                                                        ["Bathrooms"], 
-                                                        ["Showers"], 
-                                                        ["Bear box"], 
-                                                        ["Hiker/Biker"]], :selected => @place.facility_list), :multiple => true %>  </div>
+  <fieldset>
+    <div class="field">
+      <%= f.label :name %>
+      <%= f.text_field :name, :size => '55' %>
+    </div>
+    <div class="field"> <%= select_tag 'designation', options_for_select([[],["National Park"], ["Start Park"], ["County Park"], ["City Park"]], :selected => @place.designation_list) %>  </div>
+    <div class="field"> <%= select_tag 'facilities', options_for_select([ ["Camping"], 
+                                                                        ["Bathrooms"], 
+                                                                        ["Showers"], 
+                                                                        ["Bear box"], 
+                                                                        ["Hiker/Biker"]], :selected => @place.facility_list), :multiple => true %>  </div>
 
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </div>
-  <div class="field" style="display:none;">
-    <%= f.label :latitude %><br />
-    <%= f.text_field :latitude %>
-    <%= f.label :longitude %><br />
-    <%= f.text_field :longitude %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="field">
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </div>
+  </fieldset>
+
+  <fieldset class="buttons actions">
+    <%= f.submit  %>
+  </fieldset>
+
 <% end %>

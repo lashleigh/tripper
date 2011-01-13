@@ -4,9 +4,11 @@
     <div id="navigation">  
       <ul class="primary">
         <% if user_signed_in? %>  
+          <li class="nav_item"> <%= link_to "Map", "/map/index" %></li>
           <li class="nav_item"> <%= link_to "Sign out", destroy_user_session_path %></li>
           <li class="nav_item"> <%= link_to "Edit profile", edit_user_registration_path %> </li> 
         <% else %>  
+          <li class="nav_item"> <%= link_to "Map", "/map/index" %></li>
           <li class="nav_item"> <%= link_to "Sign up", new_user_registration_path %> </li>
           <li class="nav_item"> <%= link_to "Sign in", new_user_session_path %> </li>
         <% end %>  
