@@ -12,10 +12,6 @@
     <% end %>
   </h2>
 
-  <div class="block">
-    <%= @place.description %>
-  </div>
-
   <h3>Comments</h3>
   <%= render :partial => "comments/comment",
     :collection => @place.comments %>

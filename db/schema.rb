@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110111065146) do
+ActiveRecord::Schema.define(:version => 20110113033401) do
 
   create_table "comments", :force => true do |t|
     t.text     "body"
@@ -20,9 +20,15 @@ ActiveRecord::Schema.define(:version => 20110111065146) do
     t.integer  "user_id"
   end
 
-  create_table "places", :force => true do |t|
+  create_table "icons", :force => true do |t|
     t.string   "name"
     t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "places", :force => true do |t|
+    t.string   "name"
     t.float    "latitude"
     t.float    "longitude"
     t.datetime "created_at"

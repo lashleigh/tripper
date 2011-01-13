@@ -110,8 +110,9 @@ class PlacesController < ApplicationController
     end
 
     respond_to do |format|
-      format.html { redirect_to("/home/index") }
+      format.html { redirect_to( root_url) }
       format.xml  { head :ok }
     end
   end
+
 end
