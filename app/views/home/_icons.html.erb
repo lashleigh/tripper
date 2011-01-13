@@ -1,0 +1,13 @@
+<% @tags.each do |t| %>
+  <% if @place.facility_list.include?(t) %>
+    <span>
+      <%= label_tag t, image_tag("/images/parkIcons/#{t}.gif", :class => "icon selected") %>
+      <%= check_box_tag t, 'yes', true, :class => "check_box" %>
+    </span>
+  <% else %>
+    <span>
+      <%= label_tag t, image_tag("/images/parkIcons/#{t}.gif", :class => "icon") %>
+      <%= check_box_tag t, 'yes', false, :class => "check_box" %>
+    </span>
+  <% end %>
+<% end %>

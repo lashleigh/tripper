@@ -1,6 +1,9 @@
 class PlacesController < ApplicationController
   before_filter :authenticate_user!, :except => [:show, :index]
-  layout "map"
+  # The map layout is required for loading the google map
+  # O switched to application layout cause internets is down.
+  #layout "map"
+  layout "application"
 
   # Update Place location
   def update_location
@@ -26,6 +29,7 @@ class PlacesController < ApplicationController
   # GET /places/1.xml
   def show
     @place = Place.find(params[:id])
+    @tags = Place.facility_counts.collect {|f| f.name }
 
     respond_to do |format|
       format.html # show.html.erb
@@ -47,6 +51,7 @@ class PlacesController < ApplicationController
   # GET /places/1/edit
   def edit
     @place = Place.find(params[:id])
+    @tags = Place.facility_counts.collect {|f| f.name }
     unless @place.user == current_user or current_user.admin?
       flash[:error] = "You are not authorized to edit that suggestion."
       redirect_to :action => :home

@@ -1,12 +1,12 @@
 class MapController < ApplicationController
   def index
-   @places = Place.all.reverse
+    @places = Place.all.reverse
 
-   respond_to do |format|
-     format.html # index.html.erb
-     format.xml  { render :xml => @places }
-   end
- end
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @places }
+    end
+  end
 
  def new_place
     @place = Place.new

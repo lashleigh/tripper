@@ -11,8 +11,11 @@
       </span>
     <% end %>
   </h2>
+  <%= render :partial => "home/icons" %>
 
-  <h3>Comments</h3>
+  <div class="block">
+    <h3>Comments</h3>
+  </div>
   <%= render :partial => "comments/comment",
     :collection => @place.comments %>
 

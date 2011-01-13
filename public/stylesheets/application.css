@@ -268,7 +268,18 @@ div#the_footer .attribution a img#RXLOGO {
   overflow: auto;
   font-size: 1.5em;
 }
-.icon li { float: left; }
+.icon {
+  margin: 0 5px 0 0;
+  padding: 5px;
+  background: red;
+}
+.selected { background: blue; }
+.check_box { display: none; }
+.styled {
+  width: 90px;
+  height: 90px;
+  background: url("/images/parkIcons/campsite.gif");
+}
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
   margin: 0;
   padding: 0;
