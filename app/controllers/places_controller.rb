@@ -29,7 +29,8 @@ class PlacesController < ApplicationController
   # GET /places/1.xml
   def show
     @place = Place.find(params[:id])
-    @tags = Place.facility_counts
+    #@tags = Place.facility_counts
+    @tags = tag_string
 
     respond_to do |format|
       format.html # show.html.erb
@@ -51,7 +52,8 @@ class PlacesController < ApplicationController
   # GET /places/1/edit
   def edit
     @place = Place.find(params[:id])
-    @tags = Place.facility_counts
+    #@tags = Place.facility_counts
+    @tags = tag_string
     unless @place.user == current_user or current_user.admin?
       flash[:error] = "You are not authorized to edit that suggestion."
       redirect_to :action => :home
@@ -118,6 +120,11 @@ class PlacesController < ApplicationController
       format.html { redirect_to( root_url) }
       format.xml  { head :ok }
     end
+  end
+  
+  private
+  def tag_string
+    ["campsite", "restroom", "shower", "bear_box", "hike_bike_camp"]
   end
 
 end

@@ -1,13 +1,13 @@
 <% @tags.each do |t| %>
-  <% if @place.facilities.include?(t) %>
+  <% if @place.facility_list.include?(t) %>
     <span>
-      <%= check_box_tag "facilities[]", t.name, false, :class => "check_box", :id => t.id %>
-      <%= label_tag t.id, image_tag("/images/parkIcons/#{t.name}.gif", :class => "icon selected") %>
+      <%= check_box_tag "facilities[]", t, false, :class => "check_box", :id => t %>
+      <%= label_tag t, image_tag("/images/parkIcons/#{t}.gif", :class => "icon selected") %>
     </span>
   <% else %>
     <span>
-      <%= check_box_tag "facilities[]", t.name, false, :class => "check_box", :id => t.id %>
-      <%= label_tag t.id, image_tag("/images/parkIcons/#{t.name}.gif", :class => "icon") %>
+      <%= check_box_tag "facilities[]", t, false, :class => "check_box", :id => t%>
+      <%= label_tag t, image_tag("/images/parkIcons/#{t}.gif", :class => "icon") %>
     </span>
   <% end %>
 <% end %>

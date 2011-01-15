@@ -6,18 +6,16 @@
   <%= javascript_include_tag 'application' %>
 
   <%= stylesheet_link_tag 'application' %>
-  <%= stylesheet_link_tag 'user' %>
-  <%= stylesheet_link_tag 'place' %>
   <%= csrf_meta_tag %>
 </head>
 <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
   <div id="the_top">
     <%= render :partial => "/home/header" %>
   </div>
   <div id="the_middle">
     <div id="the_content" class="bound">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
       <%= yield %>
     </div>
   </div>

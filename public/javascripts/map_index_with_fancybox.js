@@ -86,14 +86,14 @@ function drawResult(i, result) {
 }
 
 function codeAddress() {
-  var address = document.getElementById("map_address").value;
+  var address = document.getElementById("address").value;
   geocoder.geocode( { 'address': address}, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
       $(results).each(drawResult);
       savedResult = results[0];
-      savedAddress = savedResult.formatted_address;
-      savedName = savedResult.address_components[0].long_name;
-      savedLatLng = savedResult.geometry.location;
+      savedAddress = results[0].formatted_address;
+      savedName = results[0].address_components[0].long_name;
+      savedLatLng = results[0].geometry.location;
       placeMap.setCenter(savedLatLng);
 
     } else {

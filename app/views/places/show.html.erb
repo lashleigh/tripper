@@ -11,18 +11,15 @@
       </span>
     <% end %>
   </h2>
-  <%= render :partial => "home/icons" %>
 
-  <div class="block">
-    <h3>Comments</h3>
-  </div>
-  <%= render :partial => "comments/comment",
-    :collection => @place.comments %>
+  <% @place.facility_list.each do |t| %>
+    <span>
+      <%= check_box_tag "facilities[]", t, false, :class => "check_box", :id => t %>
+      <%= label_tag t, image_tag("/images/parkIcons/#{t}.gif", :class => "icon selected") %>
+    </span>
+  <% end %>
 
-  <%= render "comments/form" %>
-
-  <%= link_to 'Back', places_path %> |
-  <%= link_to 'Back To Map', "/home/index" %>
+  <%= link_to 'Back', places_path, :class=>"link" %>
 </div>
 
 <div id="map_container">

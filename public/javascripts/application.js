@@ -6,6 +6,12 @@ $(function() {
   $(".icon").live('click', function() {
     $(this).toggleClass("selected");
   });
+
+  $("#map_address").keyup(function(event){
+    if(event.keyCode == 13){
+      $("#code_address").click();
+    }
+  });
 });
 
 

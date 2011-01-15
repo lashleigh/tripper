@@ -9,7 +9,7 @@ class MapController < ApplicationController
   end
 
  def new_place
-    @tags = Place.facility_counts
+    @tags = tag_string
     @place = Place.new
     @place.latitude = params[:lat]
     @place.longitude = params[:lng]
@@ -25,5 +25,9 @@ class MapController < ApplicationController
     end
   end
 
+  private
+  def tag_string
+    ["campsite", "restroom", "shower", "bear_box", "hike_bike_camp"]
+  end
 
 end
