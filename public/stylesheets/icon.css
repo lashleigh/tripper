@@ -15,8 +15,3 @@
 }
 .selected { background: blue; }
 .check_box { display: none; }
-.styled {
-  width: 90px;
-  height: 90px;
-  background: url("/images/parkIcons/campsite.gif");
-}

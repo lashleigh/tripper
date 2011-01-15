@@ -4,9 +4,9 @@
       <h2><%= pluralize(@place.errors.count, "error") %> prohibited this place from being saved:</h2>
 
       <ul>
-      <% @place.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+        <% @place.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
@@ -16,12 +16,8 @@
     <%= f.text_field :name, :size => '55' %>
   </div>
   <div> <%= select_tag 'designation', options_for_select([["National Park"], ["Start Park"], ["County Park"], ["City Park"]]) %>  </div>
-  <div> <%= select_tag 'facilities', options_for_select([ ["campsite"], 
-                                                        ["restroom"], 
-                                                        ["shower"], 
-                                                        ["bear_box"], 
-                                                        ["hike_bike_site"]]), :multiple => true %>  
-  </div>
+
+  <%= render :partial => "/home/icons" %>
 
   <div class="field" style="display:none;">
     <%= f.label :latitude %><br />

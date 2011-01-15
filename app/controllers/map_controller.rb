@@ -9,6 +9,7 @@ class MapController < ApplicationController
   end
 
  def new_place
+    @tags = Place.facility_counts
     @place = Place.new
     @place.latitude = params[:lat]
     @place.longitude = params[:lng]
