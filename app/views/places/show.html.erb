@@ -11,10 +11,7 @@
   </h2>
 
   <% @place.facility_list.each do |t| %>
-    <span class="icon_checkbox">
-      <%= check_box_tag "facilities[]", t, false, :class => "check_box", :id => t, :checked => true %>
-      <%= label_tag t, image_tag("/images/parkIcons/#{t}.gif", :class => "icon selected") %>
-    </span>
+      <%= image_tag("/images/parkIcons/#{t}.gif", :class => "icon selected") %>
   <% end %>
 
   <%= link_to 'Back', places_path, :class=>"link" %>
