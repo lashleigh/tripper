@@ -122,9 +122,4 @@ class PlacesController < ApplicationController
     end
   end
   
-  private
-  def tag_string
-    ["campsite", "restroom", "shower", "bear_box", "hike_bike_camp"]
-  end
-
 end

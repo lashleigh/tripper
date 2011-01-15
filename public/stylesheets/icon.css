@@ -8,10 +8,14 @@
 
 
 
-*/.icon {
-  margin: 0 5px 0 0;
-  padding: 5px;
-  background: red;
+*/.icon_checkbox label {
+  float: left;
+  padding: 0;
+  margin: 0;
 }
-.selected { background: blue; }
+.icon {
+  padding: 5px;
+  opacity: 0.4;
+}
+.selected { opacity: 1; }
 .check_box { display: none; }

@@ -9,4 +9,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def tag_string
+    ["campsite", "restroom", "shower", "bear_box", "hike_bike_camp", "beach_wheelchair", "biketrails", "boat_mooring", "boat_ramps"]
+  end
+
 end
