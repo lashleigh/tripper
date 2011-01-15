@@ -3,7 +3,7 @@
 $(function() {
   $("table.zebra tr:odd").addClass("odd");
 
-  $(".icon").live('click', function() {
+  $(".editable_icon").live('click', function() {
     $(this).toggleClass("selected");
   });
 

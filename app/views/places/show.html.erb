@@ -1,8 +1,6 @@
 <%= javascript_include_tag 'map_for_place' %>
 
 <div class="show_place">
-  <p id="notice"><%= notice %></p>
-
   <h2> 
     <%= @place.name %> 
     <% if user_signed_in? and (@place.user == current_user or current_user.admin?) %>
@@ -13,8 +11,8 @@
   </h2>
 
   <% @place.facility_list.each do |t| %>
-    <span>
-      <%= check_box_tag "facilities[]", t, false, :class => "check_box", :id => t %>
+    <span class="icon_checkbox">
+      <%= check_box_tag "facilities[]", t, false, :class => "check_box", :id => t, :checked => true %>
       <%= label_tag t, image_tag("/images/parkIcons/#{t}.gif", :class => "icon selected") %>
     </span>
   <% end %>
