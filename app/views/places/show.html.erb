@@ -10,11 +10,7 @@
     <% end %>
   </h2>
 
-  <div class="facility_icons">
-    <% @place.facility_list.each do |t| %>
-      <%= image_tag("/images/parkIcons/#{t}.gif", :class => "icon selected") %>
-    <% end %>
-  </div>
+  <%= render :partial => "/home/icon_images" %>
 
   <%= link_to 'Back', places_path, :class=>"link" %>
 </div>
