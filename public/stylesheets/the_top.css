@@ -8,16 +8,9 @@
 
 
 
-*/#the_top {
-  background: #691609;
-  border-bottom: 2px solid #4d0f03;
-  border-top: 1em solid #4d0f03;
-}
-#the_header {
-  background: #721b0d;
-  border: solid #66170b;
-  border-width: 0px 1px;
-  color: #f7f7ed;
+*/#the_header {
+  overflow: hidden;
+  color: black;
   padding: 2em 0px 1em;
 }
 #the_header h1 {
@@ -26,22 +19,22 @@
 }
 #the_header h1 .quiet {
   font-size: 0.8em;
-  color: #ce9890;
+  color: black;
 }
 #the_header h1 a {
   display: block;
-  color: #f7f7ed;
+  color: black;
 }
 #the_header h1 a:visited {
   display: block;
-  color: #f7f7ed;
+  color: black;
 }
-#the_header h1 a:hover { color: #ffffff; }
+#the_header h1 a:hover { color: black; }
 #the_header #navigation { float: right; }
 #the_header #navigation p {
   float: left;
   font-size: 1.2em;
-  color: #ccb3a8;
+  color: black;
   margin: 0 1em 0 0;
   padding: 0.4em;
   border-top: 1px solid transparent;
@@ -54,7 +47,7 @@
 }
 #the_header #navigation ul li a {
   display: block;
-  color: #f7f7ed;
+  color: black;
   padding: 0.75em 1em;
   border-top: 1px solid transparent;
   -moz-border-radius: 1.5em;
@@ -63,7 +56,7 @@
 }
 #the_header #navigation ul li a:visited {
   display: block;
-  color: #f7f7ed;
+  color: black;
   padding: 0.75em 1em;
   border-top: 1px solid transparent;
   -moz-border-radius: 1.5em;
@@ -71,9 +64,8 @@
   -webkit-border-radius: 1.5em;
 }
 #the_header #navigation ul li a:hover {
-  color: #ffffff;
-  border-top: 1px solid #5c1204;
-  background: #63160a;
+  color: black;
+  underline: solid;
 }
 #header #navigation li#user_navigation p {
   padding-right: 18px;

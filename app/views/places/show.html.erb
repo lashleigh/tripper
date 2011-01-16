@@ -1,6 +1,6 @@
 <%= javascript_include_tag 'map_for_place' %>
 
-<div class="show_place">
+<div class="place_form">
   <h2> 
     <%= @place.name %> 
     <% if user_signed_in? and (@place.user == current_user or current_user.admin?) %>
@@ -10,9 +10,11 @@
     <% end %>
   </h2>
 
-  <% @place.facility_list.each do |t| %>
+  <div class="facility_icons">
+    <% @place.facility_list.each do |t| %>
       <%= image_tag("/images/parkIcons/#{t}.gif", :class => "icon selected") %>
-  <% end %>
+    <% end %>
+  </div>
 
   <%= link_to 'Back', places_path, :class=>"link" %>
 </div>

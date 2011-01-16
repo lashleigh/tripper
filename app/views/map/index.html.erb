@@ -1,7 +1,6 @@
 <%= javascript_include_tag 'map_index' %>
 <script type="text/javascript">
-  var places = <%= @places.to_json.html_safe %>;
-  var inforwindow_content = '<div></div>';
+  var places = <%= @places.to_json(:methods => :facility_list).html_safe %>;
 </script>
 
 <div id="map_container">

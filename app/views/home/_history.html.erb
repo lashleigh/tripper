@@ -1,12 +1,13 @@
 <% place = history-%>
-<div>
-  <div class="place_in_sidebar">
-    <div class="place_title_in_sidebar">
-      <h3><%=link_to place.name, place %></h3>
-    </div>
+<div class="place_compact_rep">
+    <h3><%=link_to place.name, place %></h3>
     <p><%=place.address%></p>
     <p><%= place.designation_list %></p>
-    <p><%= place.facility_list%></p>
+    <div class="facility_tags">
+      <% place.facility_list.each do |t| %>
+        <%= image_tag("/images/parkIcons/#{t}.gif", :class => "icon selected") %>
+      <% end %>
+    </div>
 
-  </div>
+
 </div>

@@ -14,8 +14,10 @@
   margin: 0;
 }
 .editable_icon, .icon {
-  padding: 5px;
+  float: left;
+  padding: 5px 3px 0px 0px;
   opacity: 0.4;
 }
 .selected { opacity: 1; }
+.facility_tags { overflow: hidden; }
 .check_box { display: none; }

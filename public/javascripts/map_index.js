@@ -65,7 +65,7 @@ function drawPlace(i, placeObj) {
     //draggable: true,
   });
   google.maps.event.addListener(marker, 'click', function() {
-    infoWindow.setContent(placeObj.place.name);
+    infoWindow.setContent('<div class="place_form"><h2>'+ placeObj.place.name +'</h2></div>');
     infoWindow.open(placeMap, marker);
   });
 }

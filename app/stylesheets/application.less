@@ -1,89 +1,32 @@
 @import "reset";
 @import "basics";
-@import "the_top";
+@import "header";
 @import "place";
 @import "icon";
 @import "forms";
 
-
-/* A POTPURRI OF TEXT */
-
-.plain-text {
-    font-size: 1.4em;
-    line-height: 1.6em;
-    color: #403a20;
-    text-shadow: rgba(255,255,255,.95) 0 1px 1px;
+.bound {
+  margin: 0px auto;
+  width: 960px;
 }
-
-.plain-text a, .plain-text a:visited {
-    font-weight: bold;
-/*    border-bottom: 1px dashed #f5f5e9;*/
+.block {
+  overflow: hidden;
+  padding: 1em 2em;
 }
-
-.plain-text a:hover {
-/*    border-bottom: 1px solid #f5f5e9;*/
-}
-
-.plain-text p,
-.plain-text ul {
-    margin-bottom: 1em;
-}
-
-.plain-text .intro {
-    font-size: 1.125em;
-    font-weight: bold;
-}
-
-.plain-text em {
-  font-size: 1.125em;
-  font-family: Georgia, 'Times New Roman', serif;
-  font-style: italic;
-}
-
-.plain-text strong {
-  font-weight: bold;
-}
-
-.allure {
-  font-size: 1.3em;
-}
-
-.serif-text {
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: 1.8em;
-  line-height: 1.6em;
-  color: #403a20;
-  text-shadow: rgba(255,255,255,.95) 0 1px 1px;
-}
-
-.serif-text strong {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-.serif-text a, .serif-text a:visited {
-  font-weight: bold;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-/*  border-bottom: 1px dashed #403a20;*/
-}
-
-.serif-text a:hover {
-/*    border-bottom: 1px dashed #595336;*/
-}
-
-p.serif-text,
-.serif-text p,
-.serif-text ul {
-    margin-bottom: 1em;
-}
-
-.serif-text .intro {
-    font-size: 1.125em;
-    font-weight: bold;
-}
-
 
 #the_middle {
 }
+
+#the_content {
+  border-top: 2px solid #d1d1c5;
+  overflow: auto;
+  height: 100%;
+  h2 {
+    margin: 10px 0;
+    text-shadow: rgba(255,255,255,.95) 0 1px 1px;
+  }
+}
+
 #the_bottom {
 }
 table.zebra {
@@ -91,6 +34,7 @@ table.zebra {
   border-spacing: 0px;
   text-align: left;
   width: 100%;
+  font-size: 1.2em;
   th {
     padding: 5px 10px;
   }
