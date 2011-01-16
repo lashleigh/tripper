@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :login
 
   has_many :places
-  has_many :comments, :through => :places 
+  has_many :comments
   validates_presence_of :username
   validates_uniqueness_of :username
   validates_exclusion_of :username, :in => %w( places home )
