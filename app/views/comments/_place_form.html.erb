@@ -1,0 +1,13 @@
+<%= form_for [@place, @place.comments.build] do |f| %>
+  <div class="field">
+    <%= f.text_area :content, :rows => '10' %>
+  </div>
+  <div class="field" style="display:hidden;">
+    <%= f.hidden_field :commentable_id, :value => @place.id %>
+    <%= f.hidden_field :commentable_type, :value => "Place" %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+

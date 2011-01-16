@@ -5,12 +5,11 @@ class CommentsController < ApplicationController
     @comment = Comment.new(params[:comment])
     @comment.user = current_user
     @comment.save
-    redirect_to place_path(@place)
+    redirect_to place_path(@comment.commentable_id)
   end
 
   def destroy
-    @place = Place.find(params[:place_id])
-    @comment = @place.comments.find(params[:id])
+    @comment = Comment.find(params[:comment])
     @comment.destroy
     redirect_to place_path(@place)
   end
