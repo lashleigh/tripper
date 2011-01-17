@@ -6,9 +6,9 @@
   </div>
   <% if user_signed_in? and current_user.admin? %>
     <span class="edit_links">
-      <%= link_to image_tag("remove.png", :alt => 'Destroy Comment'), comment_path(comment),
+      <%= link_to image_tag("remove.png", :alt => 'Destroy Comment'), [comment.commentable, comment],
                   :confirm => 'Are you sure?',
-                  :method => :delete %>
+                  :method => :delete, :remote => true %>
     </span>
   <% end %>
 </div>
