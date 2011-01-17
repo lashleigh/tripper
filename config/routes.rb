@@ -3,6 +3,7 @@ Tripper::Application.routes.draw do
 
   match 'map/new_place' => 'map#new_place'
   match 'map/index' => 'map#index'
+  match 'places/update_location' => 'places#update_location'
 
   resources :places
   resources :users

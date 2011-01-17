@@ -239,7 +239,14 @@ span.hint {
   margin-bottom: 0.25em;
 }
 .quiet { color: #a0a098; }
-.comment { padding: 7px 0 0 0; }
+.comment {
+  overflow: hidden;
+  padding: 10px 0 0 0;
+}
+.avatar {
+  float: left;
+  margin: 0 5px 0 0;
+}
 .bound {
   margin: 0px auto;
   width: 960px;

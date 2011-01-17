@@ -1,6 +1,7 @@
 <div class="comment" id="comment_<%=comment.id%>">
   <span class="timestamp"><%= distance_of_time_in_words_to_now comment.created_at %> ago</span>
-  <span class="author"> <%= comment.user.username %> said:</span>
+  <span class="author"> <%= link_to comment.user.username, "/#{comment.user.username}" %> said:</span>
+  <span class="avatar"> <%= image_tag avatar_url(comment.user) %></span>  
   <div class="comment_content">
     <%= comment.content %>
   </div>
