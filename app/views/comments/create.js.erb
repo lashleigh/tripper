@@ -3,7 +3,7 @@
 $("#comments_count").html("<%= pluralize(@comment.commentable.comments.count, 'Comment') %>");
 
 /* Add the new comment to the bottom of the comments list */
-$(".show_comments").append("<%= escape_javascript(render(@comment)) %>");
+$(".show_comments").prepend("<%= escape_javascript(render(@comment)) %>");
 
 /* Reset the comment form */
 $('#new_comment')[0].reset();

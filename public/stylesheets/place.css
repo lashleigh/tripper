@@ -11,7 +11,7 @@
 */.edit_and_delete_links { text-align: right; }
 #map_canvas_for_place {
   float: left;
-  width: 350px;
+  width: 480px;
   height: 350px;
 }
 #map_container, .place_form {
@@ -22,6 +22,7 @@
   width: 960px;
   height: 500px;
 }
+.place_metadata { margin: 0 0 20px 0; }
 #history { float: left; }
 #map_sidebar {
   float: left;

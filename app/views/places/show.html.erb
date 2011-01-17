@@ -1,28 +1,30 @@
 <%= javascript_include_tag 'map_for_place' %>
 
 <div class="place_form">
-  <h2> 
-    <%= @place.name %> 
-    <% if user_signed_in? and (@place.user == current_user or current_user.admin?) %>
-      <span class="edit_links">
-        <%= link_to image_tag('edit.png'), edit_place_path(@place) %>
-      </span>
-    <% end %>
-  </h2>
+  <div class="place_metadata">
+    <h2> 
+      <%= @place.name %> 
+      <% if user_signed_in? and (@place.user == current_user or current_user.admin?) %>
+        <span class="edit_links">
+          <%= link_to image_tag('edit.png'), edit_place_path(@place) %>
+        </span>
+      <% end %>
+    </h2>
 
-  <%= render :partial => "/home/icon_images" %>
+    <%= render :partial => "/home/icon_images" %>
+    <%= link_to 'Back', root_url, :class=>"link" %> |
+    <%= link_to 'All places', places_path, :class=>"link" %>
+  </div>
 
+  <span id="comments_count"><%= pluralize(@place.comments.count, "Comment") %></span>
   <div class="show_comments">
-    <span id="comments_count"><%= pluralize(@place.comments.count, "Comment") %></span>
     <%= render :partial => "comments/comment",
-      :collection => @place.comments %>
+      :collection => @place.comments.reverse %>
   </div>
 
   <div id="comment-notice"></div>
-  <h2> Leave a comment! </h2>
   <%= render "comments/place_form" %>
 
-  <%= link_to 'Back', places_path, :class=>"link" %>
 </div>
 
 <div id="map_container">

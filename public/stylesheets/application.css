@@ -82,7 +82,7 @@ h4 {
 p { margin: 0.5em 0 0 0; }
 #the_header {
   overflow: hidden;
-  padding: 20px 0px;
+  padding: 20px 10px;
 }
 #the_header h1 {
   margin: 8px 0 0 1px;
@@ -122,7 +122,7 @@ p { margin: 0.5em 0 0 0; }
 .edit_and_delete_links { text-align: right; }
 #map_canvas_for_place {
   float: left;
-  width: 350px;
+  width: 480px;
   height: 350px;
 }
 #map_container, .place_form {
@@ -133,6 +133,7 @@ p { margin: 0.5em 0 0 0; }
   width: 960px;
   height: 500px;
 }
+.place_metadata { margin: 0 0 20px 0; }
 #history { float: left; }
 #map_sidebar {
   float: left;
@@ -259,6 +260,7 @@ span.hint {
   border-top: 2px solid #d1d1c5;
   overflow: auto;
   height: 100%;
+  padding: 0 10px;
 }
 #the_content h2 {
   margin: 10px 0;
