@@ -12,8 +12,8 @@ $(function() {
       $("#code_address").click();
     }
   });
-  $(".reply").live('click', functions() {
-    $(".reply_form").slideToggle("slow");
+  $(".reply").live('click', function() {
+    $(this).parents(".comment").find(".reply_form").first().slideToggle('slow');
   });
 /*  $( ".reply" ).button({
     icons: {

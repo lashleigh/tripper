@@ -16,3 +16,7 @@
   float: left;
   margin: 0 5px 0 0;
 }
+.show_replies {
+  margin: 0 0 0 20px;
+  overflow: hidden;
+}
