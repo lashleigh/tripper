@@ -12,6 +12,22 @@ $(function() {
       $("#code_address").click();
     }
   });
+  $(".reply").live('click', functions() {
+    $(".reply_form").slideToggle("slow");
+  });
+/*  $( ".reply" ).button({
+    icons: {
+      primary: "ui-icon-plusthick"
+      },
+    text: false
+  });  
+
+  $( ".destroy_comment" ).button({
+    icons: {
+      primary: "ui-icon-trash"
+      },
+    text: false
+  });  */
 });
 
 

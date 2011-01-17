@@ -10,9 +10,14 @@ Tripper::Application.routes.draw do
   resources :home
   resources :comments
 
+  resources :comments do
+    resources :comments
+  end
+
   resources :places do
     resources :comments
   end
+
 
   get "home/index"
   match '/:id' => 'users#show', :as => :user
