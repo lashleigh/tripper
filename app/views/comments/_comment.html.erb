@@ -1,28 +1,30 @@
 <div class="comment" id="comment_<%=comment.id%>">
-  <span class="timestamp"><%= distance_of_time_in_words_to_now comment.created_at %> ago</span>
-  <span class="author"> <%= link_to comment.user.username, "/#{comment.user.username}" %> said:</span>
-  <span class="avatar"> <%= link_to image_tag(avatar_url(comment.user)), "/#{comment.user.username}" %></span>  
-  <div class="comment_content">
-    <%= comment.content %>
-  </div>
-  <%= comment.id %> and <%= comment.commentable.id %>
-  <span class="edit_links">
-    <% if user_signed_in? and current_user.admin? %>
-      <%= link_to image_tag("remove.png", :alt => 'Destroy Comment'), [comment.commentable, comment], :confirm => 'Are you sure?', :method => :delete, :remote => true %>
-      <%= link_to image_tag("reply.png", :alt => 'Reply'), '#', :class=> "reply", :remote => true %>
-    <% end %>
-    <% if comment.comments.count != 0 %>
-      Show <%= pluralize(comment.comments.count, "Comment") %>
-      <%= link_to image_tag("arrow_down.png", :alt => 'Show'), '#', :class=> "show", :remote => true %>
-    <% end %>
-  </span>
-  <div class="reply_form" style="display:none;">
-    <%= render :partial => "comments/reply_form", :object => comment %>
+  <div class="comment_head">
+    <div class="metadata">
+      <span class="timestamp"><%= distance_of_time_in_words_to_now comment.created_at %> ago</span>
+      <span class="author"> <%= link_to comment.user.username, "/#{comment.user.username}" %> said:</span>
+      <span class="avatar"> <%= link_to image_tag(avatar_url(comment.user)), "/#{comment.user.username}" %></span>  
+      <div class="comment_content">
+        <%= comment.content %>
+      </div>
+      <div class="edit_links">
+        <% if user_signed_in? and current_user.admin? %>
+          <%= link_to image_tag("remove.png", :alt => 'Destroy Comment'), [comment.commentable, comment], :confirm => 'Are you sure?', :method => :delete, :remote => true %>
+          <%= link_to image_tag("reply.png", :alt => 'Reply'), '#', :class=> "reply", :remote => true %>
+        <% end %>
+        <% if comment.comments.count != 0 %>
+          <span>Show <%= pluralize(comment.comments.count, "Comment") %></span>
+          <%= link_to image_tag("arrow_down.png", :alt => 'Show'), '#', :class=> "show", :remote => true %>
+        <% end %>
+      </div>
+    </div>
+    <div class="reply_form" style="display:none;">
+      <%= render :partial => "comments/reply_form", :object => comment %>
+    </div>
   </div>
 
   <div class="show_replies" style="display:none;">
-    <%= render :partial => "comments/comment",
-      :collection => comment.comments %>
+    <%= render :partial => "comments/comment", :collection => comment.comments %>
   </div>
 </div>
 
