@@ -13,8 +13,7 @@
           <%= link_to image_tag("reply.png", :alt => 'Reply'), '#', :class=> "reply", :remote => true %>
         <% end %>
         <% if comment.comments.count != 0 %>
-          <span>Show <%= pluralize(comment.comments.count, "Comment") %></span>
-          <%= link_to image_tag("arrow_down.png", :alt => 'Show'), '#', :class=> "show", :remote => true %>
+          <span><%= link_to pluralize(comment.comments.count, "reply"), '#', :class => "show", :remote => true %></span>
         <% end %>
       </div>
     </div>
