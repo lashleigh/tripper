@@ -7,6 +7,7 @@ Tripper::Application.routes.draw do
   resources :places
   resources :users
   resources :home
+  resources :comments
 
   resources :places do
     resources :comments

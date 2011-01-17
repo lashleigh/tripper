@@ -13,11 +13,13 @@
   <%= render :partial => "/home/icon_images" %>
 
   <div class="show_comments">
-    <h3>Comments</h3>
+    <span id="comments_count"><%= pluralize(@place.comments.count, "Comment") %></span>
     <%= render :partial => "comments/comment",
       :collection => @place.comments %>
   </div>
 
+  <div id="comment-notice"></div>
+  <h2> Leave a comment! </h2>
   <%= render "comments/place_form" %>
 
   <%= link_to 'Back', places_path, :class=>"link" %>

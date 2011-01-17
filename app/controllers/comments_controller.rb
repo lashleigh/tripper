@@ -5,12 +5,19 @@ class CommentsController < ApplicationController
     @comment = Comment.new(params[:comment])
     @comment.user = current_user
     @comment.save
-    redirect_to place_path(@comment.commentable_id)
+    respond_to do |format|
+      format.html { redirect_to place_path(@comment.commentable_id) }
+      format.js
+    end
   end
 
   def destroy
-    @comment = Comment.find(params[:comment])
+    @comment = Comment.find(params[:id])
+    @place = @comment.commentable
     @comment.destroy
-    redirect_to place_path(@place)
+    respond_to do |format|
+      format.html { redirect_to place_path(@place) }
+      format.js
+    end
   end
 end
