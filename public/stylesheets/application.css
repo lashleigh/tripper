@@ -253,6 +253,11 @@ span.hint {
   overflow: hidden;
 }
 .metadata { overflow: hidden; }
+.comment_content_container {
+  float: right;
+  margin-right: 27px;
+}
+.comment_content { float: left; }
 .bound {
   margin: 0px auto;
   width: 960px;

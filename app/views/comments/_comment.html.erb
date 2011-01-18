@@ -1,11 +1,15 @@
 <div class="comment" id="comment_<%=comment.id%>">
   <div class="comment_head">
     <div class="metadata">
-      <span class="timestamp"><%= distance_of_time_in_words_to_now comment.created_at %> ago</span>
-      <span class="author"> <%= link_to comment.user.username, "/#{comment.user.username}" %> said:</span>
-      <span class="avatar"> <%= link_to image_tag(avatar_url(comment.user)), "/#{comment.user.username}" %></span>  
-      <div class="comment_content">
-        <%= comment.content %>
+      <div>
+        <span class="avatar"> <%= link_to image_tag(avatar_url(comment.user)), "/#{comment.user.username}" %></span>  
+        <span class="author"> <%= link_to comment.user.username, "/#{comment.user.username}" %> </span>
+        <span class="timestamp"> (<%= distance_of_time_in_words_to_now comment.created_at %> ago)</span>
+      </div>
+      <div class="comment_content_container" style="width:<%=@x%>px;">
+        <div class="comment_content">
+          <%= comment.content %>
+        </div>
       </div>
       <div class="edit_links">
         <% if user_signed_in? and current_user.admin? %>
@@ -23,7 +27,9 @@
   </div>
 
   <div class="show_replies" style="display:none;">
+    <% @x = @x-20 %>
     <%= render :partial => "comments/comment", :collection => comment.comments %>
   </div>
+    <% @x = @x+20 %>
 </div>
 
