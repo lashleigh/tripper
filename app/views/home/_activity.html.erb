@@ -1,0 +1,12 @@
+<div class="place_compact_rep">
+  <div>
+  <% if Place === activity %>
+    <h3><%=link_to activity.name, activity %></h3>
+    <p><%= activity.address%></p>
+    <p><%= activity.designation_list %></p>
+  <% elsif Comment === activity %>
+    <p><%= activity.content %></p>
+  <% end %>
+  <p>Created by <%= activity.user.username %> <%= distance_of_time_in_words_to_now activity.created_at %> ago</p>
+
+</div>
