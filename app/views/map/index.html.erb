@@ -3,6 +3,27 @@
   var places = <%= @places.to_json(:methods => :facility_list).html_safe %>;
 </script>
 
+<script type="text/javascript">
+  var geo = new google.maps.Geocoder();       
+  $(function() {
+  $( "#map_address" ).autocomplete({
+    source: function(request, response) {
+        geo.geocode( {'address': request.term}, function(results, status) {
+          response($.map(results, function(item) {
+            return {
+              label: item.formatted_address,
+              value: item.formatted_address,
+              viewport: item.geometry.viewport,
+              location: item.geometry.location
+            }
+          }));
+        })
+      },
+    minLength: 3,
+  });
+});
+</script>
+
 <div id="map_container">
   <input id="map_address" type="textbox" size="40" value="Sunset State Beach in CA">
   <input id="code_address" type="button" value="Search" onclick="codeAddress()">
