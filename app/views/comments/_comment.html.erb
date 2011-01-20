@@ -6,7 +6,7 @@
         <span class="author"> <%= link_to comment.user.username, "/#{comment.user.username}" %> </span>
         <span class="timestamp"> (<%= distance_of_time_in_words_to_now comment.created_at %> ago)</span>
       </div>
-      <div class="comment_content_container" style="width:<%=@x%>px;">
+      <div class="comment_content_container" style="width:<%=@width%>px;">
         <div class="comment_content">
           <%= comment.content %>
         </div>
@@ -27,9 +27,9 @@
   </div>
 
   <div class="show_replies" style="display:none;">
-    <% @x = @x-20 %>
+    <% @width = @width-20 %>
     <%= render :partial => "comments/comment", :collection => comment.comments %>
   </div>
-    <% @x = @x+20 %>
+    <% @width = @width+20 %>
 </div>
 

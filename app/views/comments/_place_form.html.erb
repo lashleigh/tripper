@@ -1,12 +1,26 @@
 <% place = place_form-%>
-<%= form_for Comment.new, :remote => true do |f| %>
-    <%= f.text_area :content, :rows => '10' %>
-  <div class="field" style="display:hidden;">
-    <%= f.hidden_field :commentable_id, :value => place.id %>
-    <%= f.hidden_field :commentable_type, :value => "Place" %>
+<% if user_signed_in? %>
+  <p>Add a comment</p>
+<div class="comment_head">
+  <div class="metadata">
+    <div>
+      <span class="avatar"> <%= link_to image_tag(avatar_url(current_user)), "/#{current_user.username}" %></span>  
+    </div>
+    <div class="comment_content_container" style="width:<%=@width%>px;">
+      <div class="comment_content">
+        <%= form_for Comment.new, :remote => true do |f| %>
+          <%= f.text_area :content, :rows => '10' %>
+          <div class="field" style="display:hidden;">
+            <%= f.hidden_field :commentable_id, :value => place.id %>
+            <%= f.hidden_field :commentable_type, :value => "Place" %>
+          </div>
+          <div class="actions">
+            <%= f.submit %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+</div>
 <% end %>
 

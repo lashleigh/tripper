@@ -1,5 +1,5 @@
 <%= javascript_include_tag 'map_for_place' %>
-<% @x = 400 %>
+<% @width = 400 %>
 <div class="place_form">
   <div class="place_metadata">
     <h2> 
@@ -22,7 +22,6 @@
       :collection => @place.comments.reverse %>
   </div>
 
-  <div id="comment-notice"></div>
   <%= render :partial => "comments/place_form", :object => @place %>
 
 </div>

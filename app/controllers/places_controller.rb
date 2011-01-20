@@ -83,7 +83,7 @@ class PlacesController < ApplicationController
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @place.errors, :status => :unprocessable_entity }
-        format.js { render :json => @place.errors, :status => :unprocessable_entity }
+        format.js { render :json => { :errors => @place.errors.full_messages } }
       end
     end
   end
