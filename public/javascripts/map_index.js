@@ -77,6 +77,7 @@ function drawResult(i, result) {
       icon: gYellowIcon, 
       shadow: gSmallShadow,
   });
+  searchResults.push(marker);
   google.maps.event.addListener(marker, 'click', function() {
     infoWindow.setContent(result.formatted_address + "</br>" + savedLatLng + "</br>" + 
       '<input class="addPlaceFromSearch" type="button" value="Save this place?">'
@@ -86,6 +87,7 @@ function drawResult(i, result) {
 }
 
 function codeAddress() {
+  deleteOverlays();
   var address = document.getElementById("map_address").value;
   geocoder.geocode( { 'address': address}, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
@@ -113,3 +115,12 @@ function createSuggestionFromSearch(event) {
              });
 }
 
+// Deletes all markers in the array by removing references to them
+function deleteOverlays() {
+  if (searchResults) {
+    for (i in searchResults) {
+      searchResults[i].setMap(null);
+    }
+    searchResults.length = 0;
+  }
+}
