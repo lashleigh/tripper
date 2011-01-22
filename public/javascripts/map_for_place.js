@@ -6,7 +6,7 @@ $(function() {
   // Initialize the map with default UI.
   placeMap = new google.maps.Map(document.getElementById("map_canvas_for_place"), {
     center: new google.maps.LatLng(place.latitude, place.longitude),
-    zoom: 11,
+    zoom: 12,
     mapTypeId: 'roadmap'
   });
 

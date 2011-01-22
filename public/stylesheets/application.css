@@ -240,7 +240,7 @@ span.hint {
   margin-bottom: 0.25em;
 }
 .quiet { color: #a0a098; }
-.comment {
+.comment_container {
   overflow: hidden;
   padding: 10px 0 0 0;
 }
@@ -253,10 +253,7 @@ span.hint {
   overflow: hidden;
 }
 .metadata { overflow: hidden; }
-.comment_content_container {
-  float: right;
-  margin-right: 27px;
-}
+.comment_content_container { display: table; }
 .comment_content { float: left; }
 .bound {
   margin: 0px auto;

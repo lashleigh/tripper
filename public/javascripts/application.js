@@ -13,11 +13,11 @@ $(function() {
     }
   });
   $(".reply").live('click', function() {
-    $(this).parents(".comment").find(".reply_form").first().slideToggle('slow');
+    $(this).parents(".comment_container").find(".reply_form").first().slideToggle('slow');
   });
 
   $(".show").live('click', function() {
-    $(this).parents(".comment").find(".show_replies").first().slideToggle('slow');
+    $(this).parents(".comment_container").find(".show_replies").first().slideToggle('slow');
   });
 /*  $( ".reply" ).button({
     icons: {
